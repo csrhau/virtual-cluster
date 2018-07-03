@@ -1,5 +1,5 @@
-# Schedules a download of the specified artefact.
-# Args: name, Version major/minor/patch, file extension
+# REQUIRE_IMPL triggers a download of the specified artefact.
+# ARGS: name, Version major/minor/patch, file extension
 define REQUIRE_IMPL
 all: $1-$2.$3.$4.$5
 $1-$2.$3.$4.$5: VERSION_MAJOR=$2
@@ -24,7 +24,7 @@ define REQUIRE_SLURM
 $(call REQUIRE_IMPL,slurm,$1,$2,$3,tar.bz2)
 endef
 
-# Download Prerequisites
+# Specify Downloads Here
 $(eval $(call REQUIRE_SLURM,17,11,7))
 $(eval $(call REQUIRE_GCC,7,2,0))
 $(eval $(call REQUIRE_GCC,6,3,0))
